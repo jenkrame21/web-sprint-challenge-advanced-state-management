@@ -9,7 +9,7 @@ export const CALL_FAILURE = "CALL_FAILURE";
 export const START_ADD_SMURF = "START_ADD_SMURF";
 export const ADD_SMURF_SUCCESS = "ADD_SMURF_SUCCESS";
 export const ADD_SMURF_FAILURE = "ADD_SMURF_FAILURE";
-export const SET_NEW_SMURF = "SET_NEW_SMURF";
+// export const SET_NEW_SMURF = "SET_NEW_SMURF";
 export const SET_ERROR = "SET_ERROR";
 
 //Task List:
@@ -29,7 +29,7 @@ export const getSmurfs = () => (dispatch) => {
         })
         .catch((err) => {
             // console.log("Get Smurf Failure Action: ", err);
-            dispatch({ type: CALL_FAILURE, payload: err });
+            dispatch({ type: CALL_FAILURE, payload: err.response.data });
         });
 };
 
@@ -48,7 +48,7 @@ export const addSmurf = (newSmurf) => (dispatch) => {
             dispatch({ type: ADD_SMURF_SUCCESS, payload: res.data.newSmurf });
         })
         .catch((err) => {
-            dispatch({ type: ADD_SMURF_FAILURE, payload: err });
+            dispatch({ type: ADD_SMURF_FAILURE, payload: err.response });
         });
 };
 

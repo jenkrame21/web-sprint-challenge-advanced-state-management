@@ -10,13 +10,6 @@ export const initialState = {
     appLoading: false,
     error: '',
     //     [x] - error text
-    newSmurf: {
-        id: Date.now(),
-        name: '',
-        nickname: '',
-        position: '',
-        description: ''
-    }
 };
 
 
@@ -47,9 +40,6 @@ export const reducer = (state = initialState, action)=>{
                 appLoading: false,
                 error: action.payload
             }
-
-
-
         //     [x] - The adding a smurf to the smurf list when added into payload
         case START_ADD_SMURF:
             return {
@@ -68,17 +58,6 @@ export const reducer = (state = initialState, action)=>{
                 ...state,
                 appLoading: false,
                 error: action.payload
-            }
-        case SET_NEW_SMURF:
-            return {
-                ...state,
-                newSmurf: {
-                    id: action.payload.id,
-                    name: action.payload.name,
-                    nickname: action.payload.nickname,
-                    position: action.payload.position,
-                    description: action.payload.description
-                }
             }
         //     [x] - Setting Error Text
         case SET_ERROR:
