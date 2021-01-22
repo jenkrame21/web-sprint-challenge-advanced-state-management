@@ -1,5 +1,46 @@
 import axios from 'axios';
 
+// Call Actions to Strings
+export const START_CALL = "START_CALL";
+export const CALL_SUCCESS = "CALL_SUCCESS";
+export const CALL_FAILURE = "CALL_FAILURE";
+
+// Add Smurf Actions to Strings
+export const START_ADD_SMURF = "START_ADD_SMURF";
+export const ADD_SMURF_SUCCESS = "ADD_SMURF_SUCCESS";
+export const ADD_SMURF_FAILURE = "ADD_SMURF_FAILURE";
+export const SET_NEW_SMURF = "SET_NEW_SMURF";
+
+export const fetchSmurfs = () => (dispatch) => {
+    dispatch({ type: START_CALL });
+
+    axios
+        .get('http://localhost:3333/smurfs')
+        .then((res) => {
+            console.log("Get Smurf Success Action: ", res.data);
+            dispatch({ type: CALL_SUCCESS, payload: res.data });
+        })
+        .catch((err) => {
+            console.log("Get Smurf Failure Action: ", err);
+            dispatch({ type: CALL_FAILURE, payload: err });
+        });
+};
+
+export const postSmurfs = () => (dispatch) => {
+    axios
+        .post('http://localhost:/3333/smurfs')
+        .then((res) => {
+            dispatch({ type: CALL_SUCCESS, payload: res.data });
+        })
+        .catch((err) => {
+            dispatch({ type: CALL_FAILURE, payload: err })
+        });
+};
+
+export const addNewSmurf = () => (dispatch) => {
+    
+}
+
 //Task List:
 //1. Add fetch smurfs action: 
 //              - fetch and return initial list of smurfs
