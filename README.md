@@ -69,7 +69,7 @@ Go [here](./CodeGrade-webhook.md) to setup the CodeGrade webhook before you begi
 
 ##### POST '/smurfs'
 
-- [x] Design the functionality to add a smurf to the Smurf DB you'll need all five fields. `name`, `position`, and `nickname`, `description`.
+- [] Design the functionality to add a smurf to the Smurf DB you'll need all five fields. `name`, `position`, and `nickname`, `description`.
 
 Example of the shape of data to be sent to the `POST` endpoint. Note that id does not need to be sent and will be generated on the server:
 
@@ -82,7 +82,7 @@ Example of the shape of data to be sent to the `POST` endpoint. Note that id doe
 }
 ```
 
-- [x] Double check to make sure that a smurf is created correctly once your functionality is built out.
+- [] Double check to make sure that a smurf is created correctly once your functionality is built out.
 
 Initially Brainey will be in the array, but it takes more than one smurf to make the village. Be sure to add a few smurfs to populate our smurf village.
 
@@ -111,16 +111,16 @@ Example of object created in Smurf DB:
 ### Task 2: Project Requirements
 Your finished project must include all of the following requirements:
 
-- [ ] Plan and implement how you are going to manage your state for your application
-- [ ] You _must_ use Redux as your state management system
+- [x] Plan and implement how you are going to manage your state for your application
+- [x] You _must_ use Redux as your state management system
 - [ ] Complete the tasks listed within:
-        * `./reducers/index.js`
-        * `./actions/index.js`
-        * `./index.js`
-        * `./App.js`
-        * `./components/AddForm.js`
-        * `./components/Smurf.js`
-        * `./components/SmurfDisplay.js`
+      []  * `./reducers/index.js`
+      []  * `./actions/index.js`
+      []  * `./index.js`
+      []  * `./App.js`
+      []  * `./components/AddForm.js`
+      []  * `./components/Smurf.js`
+      []  * `./components/SmurfDisplay.js`
 - [ ] You completed application should do the following:
         - Fetch and display data from the included server code on mounting.
         - Provide the user a form for adding in the Name, Position, Nickname and Description of a new Smurf.

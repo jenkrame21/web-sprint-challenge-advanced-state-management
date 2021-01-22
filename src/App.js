@@ -1,19 +1,13 @@
 // Imported Libraries
 import React, { Component } from "react";
-import { connect } from 'react-redux';
 
 // Local Imports
 import AddForm from './components/AddForm';
 import SmurfDisplay from './components/SmurfDisplay';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
-import { fetchSmurfs } from './actions';
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchSmurfs();
-  }
-  
   render() {
     return (
       <div className="App">
@@ -29,7 +23,7 @@ class App extends Component {
   }
 }
 
-export default connect(null, { fetchSmurfs })(App);
+export default App;
 
 //Task List:
 //1. Add in SmurfDisplay and AddForm into your application.

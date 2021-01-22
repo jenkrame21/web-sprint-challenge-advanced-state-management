@@ -10,8 +10,9 @@ export const START_ADD_SMURF = "START_ADD_SMURF";
 export const ADD_SMURF_SUCCESS = "ADD_SMURF_SUCCESS";
 export const ADD_SMURF_FAILURE = "ADD_SMURF_FAILURE";
 export const SET_NEW_SMURF = "SET_NEW_SMURF";
+export const SET_ERROR = "SET_ERROR";
 
-export const fetchSmurfs = () => (dispatch) => {
+export const getSmurfs = () => (dispatch) => {
     dispatch({ type: START_CALL });
 
     axios
@@ -26,20 +27,18 @@ export const fetchSmurfs = () => (dispatch) => {
         });
 };
 
-export const postSmurfs = () => (dispatch) => {
+export const postSmurfs = (newSmurf) => (dispatch) => {
+    dispatch({ type: START_ADD_SMURF });
+
     axios
-        .post('http://localhost:/3333/smurfs')
+        .post('http://localhost:/3333/smurfs', newSmurf)
         .then((res) => {
-            dispatch({ type: CALL_SUCCESS, payload: res.data });
+            dispatch({ type: ADD_SMURF_SUCCESS, payload: res.data.newSmurf });
         })
         .catch((err) => {
-            dispatch({ type: CALL_FAILURE, payload: err })
+            dispatch({ type: ADD_SMURF_FAILURE, payload: err })
         });
 };
-
-export const addNewSmurf = () => (dispatch) => {
-    
-}
 
 //Task List:
 //1. Add fetch smurfs action: 
