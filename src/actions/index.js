@@ -52,11 +52,11 @@ export const addSmurf = (newSmurf) => (dispatch) => {
         });
 };
 
+//3. Add set error text action:
+//              - return action object setting error text
+
 export const errorMessage = (error) => (dispatch) => {
     dispatch({ type: SET_ERROR, payload: error });
 };
 
-
-//3. Add set error text action:
-//              - return action object setting error text
 //4. Any other actions you deem nessiary to complete application.

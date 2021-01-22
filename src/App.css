@@ -18,6 +18,20 @@ section {
   padding: 1em;
 }
 
+label {
+  font-weight: bold;
+  margin: 1% 0;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  padding: 1% 2%;
+  font-weight: bold;
+}
+
 .display {
   display:flex;
   flex-direction: row;

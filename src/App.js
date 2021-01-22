@@ -7,6 +7,9 @@ import SmurfDisplay from './components/SmurfDisplay';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
+//Task List:
+//1. Add in SmurfDisplay and AddForm into your application.
+
 class App extends Component {
   render() {
     return (
@@ -24,6 +27,3 @@ class App extends Component {
 }
 
 export default App;
-
-//Task List:
-//1. Add in SmurfDisplay and AddForm into your application.
