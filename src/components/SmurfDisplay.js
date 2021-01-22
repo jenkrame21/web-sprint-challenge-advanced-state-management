@@ -4,7 +4,6 @@ import React from 'react';
 import { getSmurfs } from '../actions';
 import { connect } from 'react-redux';
 import Smurf from './Smurf';
-import './SmurfDisplay.css';
 
 export class SmurfDisplay extends React.Component {
 
@@ -14,34 +13,24 @@ export class SmurfDisplay extends React.Component {
     };
 
     //4. Render loading text or graphic if the application is currently loading.
-    
     //5. Render a list of all Smurfs using the Smurf component if the application is not currently loading.
-
     render() {
-        return (<div>
-            {this.props.smurfs.map(smurf => (
-                <div className="smurfDisplay">
-                    <h5>Name: </h5>
-                    <p>{smurf.name}</p>
-
-                    <h5>Position: </h5>
-                    <p>{smurf.position}</p>
-
-                    <h5>Nickname: </h5>
-                    <p>{smurf.nickname}</p>
-
-                    <h5>Description: </h5>
-                    <p>{smurf.description}</p>
-                </div>
-            ))}
-            <Smurf />
-        </div>)
+        return (
+            <div>
+                {this.props.appLoading
+                ? <h2>Loading Smurf Data...</h2>
+                : this.props.smurfs.map(smurf => {
+                    return <Smurf smurf={smurf} key={smurf.id}/>
+                })}
+            </div>
+        )
     }
 }
 
 const mapStateToProps = state => {
     return {
-        smurfs: state.smurfs
+        smurfs: state.smurfs,
+        appLoading: state.appLoading
     }
 }
 
