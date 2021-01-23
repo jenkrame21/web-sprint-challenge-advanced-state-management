@@ -16,7 +16,7 @@ export class SmurfDisplay extends React.Component {
     //5. Render a list of all Smurfs using the Smurf component if the application is not currently loading.
     render() {
         return (
-            <div>
+            <div className="smurfDisplay">
                 {this.props.appLoading
                 ? <h2>Loading Smurf Data...</h2>
                 : this.props.smurfs.map(smurf => {

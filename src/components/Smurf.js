@@ -12,8 +12,7 @@ class Smurf extends React.Component {
         //2. Display the name, position, nickname and description of the provided smurf as needed.
         return(
             <div data-testid="smurf" className="card">
-                <h5>Name: </h5>
-                <p>{smurf.name}</p>
+                <h3>{smurf.name}</h3>
 
                 <h5>Position: </h5>
                 <p>{smurf.position}</p>
