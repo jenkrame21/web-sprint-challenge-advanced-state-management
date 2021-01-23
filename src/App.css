@@ -1,16 +1,25 @@
 html, body, #root, .App {
   height:100%;
-  background: #007bff!important;
+  /* background: #007bff!important; */
+  background-image: url('./assets/Smurfs-3-the-lost-village-HD-backgrounds.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow:auto;
 }
 
 main {
   background: white;
   width: 65%;
   margin: 2em auto;
+  border-radius: 10px;
 }
 
 input, textarea {
   width:100%;
+  border:none;
+  border-bottom: #007bff solid 2px;
+  color: #fff;
 }
 
 section {
