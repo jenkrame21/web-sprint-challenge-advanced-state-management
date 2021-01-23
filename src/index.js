@@ -12,7 +12,7 @@ import thunk from 'redux-thunk';
 // Local Imports
 import "./index.css";
 import App from "./App";
-import { reducer } from './reducers';
+import reducer from './reducers';
 
 const { worker } = require('./mocks/browser');
 worker.start();

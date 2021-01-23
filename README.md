@@ -69,7 +69,7 @@ Go [here](./CodeGrade-webhook.md) to setup the CodeGrade webhook before you begi
 
 ##### POST '/smurfs'
 
-- [] Design the functionality to add a smurf to the Smurf DB you'll need all five fields. `name`, `position`, and `nickname`, `description`.
+- [x] Design the functionality to add a smurf to the Smurf DB you'll need all five fields. `name`, `position`, and `nickname`, `description`.
 
 Example of the shape of data to be sent to the `POST` endpoint. Note that id does not need to be sent and will be generated on the server:
 
@@ -82,7 +82,7 @@ Example of the shape of data to be sent to the `POST` endpoint. Note that id doe
 }
 ```
 
-- [] Double check to make sure that a smurf is created correctly once your functionality is built out.
+- [x] Double check to make sure that a smurf is created correctly once your functionality is built out.
 
 Initially Brainey will be in the array, but it takes more than one smurf to make the village. Be sure to add a few smurfs to populate our smurf village.
 
@@ -114,22 +114,22 @@ Your finished project must include all of the following requirements:
 - [x] Plan and implement how you are going to manage your state for your application
 - [x] You _must_ use Redux as your state management system
 - [ ] Complete the tasks listed within:
-      [-]  * `./reducers/index.js`
-      [-]  * `./actions/index.js`
+      [x]  * `./reducers/index.js`
+      [x]  * `./actions/index.js`
       [x]  * `./index.js`
       [x]  * `./App.js`
-      [-]  * `./components/AddForm.js`
+      [x]  * `./components/AddForm.js`
       [x]  * `./components/Smurf.js`
       [x]  * `./components/SmurfDisplay.js`
 - [ ] You completed application should do the following:
       [x]  - Fetch and display data from the included server code on mounting.
       [x]  - Provide the user a form for adding in the Name, Position, Nickname and Description of a new Smurf.
-      []  - Allow new smurfs to be added to the list when the submit smurf button is pressed.
-      []  - Displays an error alert when name, position or nickname is not included in the submission.
-      []  - Include the word "Error" and "name/position/nickname" in the rendered error alert as approprate.
-      []  - Does NOT display an error alert when description is left blank.
-      []  - Display an error alert if a smurf is submitted with a name already assigned to a smurf.
-      []  - Include the word "Error" and the returned server error message in the rendered error alert as approprate.
+      [x]  - Allow new smurfs to be added to the list when the submit smurf button is pressed.
+      [x]  - Displays an error alert when name, position or nickname is not included in the submission.
+      [x]  - Include the word "Error" and "name/position/nickname" in the rendered error alert as approprate.
+      [x]  - Does NOT display an error alert when description is left blank.
+      [x]  - Display an error alert if a smurf is submitted with a name already assigned to a smurf.
+      [x]  - Include the word "Error" and the returned server error message in the rendered error alert as approprate.
       [x]  - DO NOT REMOVE ANY data-testid FIELDS FROM THE CODE. These fields are used for internal grading of your sprints. While we don't recommend using testid in most cases, it is necessary our grading systems currently.
 
 In your solution, it is essential that you follow best practices and produce clean and professional results. You will be scored on your adherence to proper code style and good organization. Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work. It is better to submit a challenge that meets MVP than one that attempts too much and does not.

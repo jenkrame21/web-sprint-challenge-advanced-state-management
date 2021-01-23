@@ -10,18 +10,23 @@ class Smurf extends React.Component {
         const { smurf } = this.props;
 
         //2. Display the name, position, nickname and description of the provided smurf as needed.
-        return(<div data-testid="smurf" className="card">
-            <h5>Name: </h5>
-            <p>{smurf.name}</p>
-            <h5>Position: </h5>
-            <p>{smurf.position}</p>
-            <h5>Nickname: </h5>
-            <p>{smurf.nickname}</p>
-            <h5>Description: </h5>
-            <p>{smurf.description}</p>
-        </div>);
+        return(
+            <div data-testid="smurf" className="card">
+                <h5>Name: </h5>
+                <p>{smurf.name}</p>
+
+                <h5>Position: </h5>
+                <p>{smurf.position}</p>
+
+                <h5>Nickname: </h5>
+                <p>{smurf.nickname}</p>
+
+                <h5>Description: </h5>
+                <p>{smurf.description}</p>
+            </div>
+        )
     }
-}
+};
 
 export default Smurf;
 

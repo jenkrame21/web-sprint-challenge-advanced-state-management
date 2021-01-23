@@ -9,7 +9,6 @@ export const CALL_FAILURE = "CALL_FAILURE";
 export const START_ADD_SMURF = "START_ADD_SMURF";
 export const ADD_SMURF_SUCCESS = "ADD_SMURF_SUCCESS";
 export const ADD_SMURF_FAILURE = "ADD_SMURF_FAILURE";
-// export const SET_NEW_SMURF = "SET_NEW_SMURF";
 export const SET_ERROR = "SET_ERROR";
 
 //Task List:
@@ -28,8 +27,8 @@ export const getSmurfs = () => (dispatch) => {
             dispatch({ type: CALL_SUCCESS, payload: res.data });
         })
         .catch((err) => {
-            // console.log("Get Smurf Failure Action: ", err);
-            dispatch({ type: CALL_FAILURE, payload: err.response.data });
+            // console.log("Get Smurf Failure Action: ", err.message);
+            dispatch({ type: CALL_FAILURE, payload: err.message });
         });
 };
 
@@ -39,16 +38,18 @@ export const getSmurfs = () => (dispatch) => {
 //              - dispatch add smurf action if request is successful
 //              - dispatch an error text action if an request returns an error
 
-export const addSmurf = (newSmurf) => (dispatch) => {
+export const postSmurf = (newSmurf) => (dispatch) => {
     dispatch({ type: START_ADD_SMURF });
 
     axios
-        .post('http://localhost:/3333/smurfs', newSmurf)
+        .post('http://localhost:3333/smurfs', newSmurf)
         .then((res) => {
-            dispatch({ type: ADD_SMURF_SUCCESS, payload: res.data.newSmurf });
+            console.log("Post Smurf Success: ", res.data);
+            dispatch({ type: ADD_SMURF_SUCCESS, payload: res.data });
         })
         .catch((err) => {
-            dispatch({ type: ADD_SMURF_FAILURE, payload: err.response });
+            console.log("Post Smurf Failure: ", err.response.data);
+            dispatch({ type: ADD_SMURF_FAILURE, payload: err.response.data.Error });
         });
 };
 

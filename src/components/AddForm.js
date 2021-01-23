@@ -2,23 +2,24 @@
 //1. Add in all necessary import components and library methods.
 import React from 'react';
 import { connect } from 'react-redux';
-import { addSmurf } from '../actions';
+import { postSmurf, errorMessage } from '../actions';
+
+//3. Add state holding name, position, nickname and description to component.
+const initialState = {
+    newSmurf: {
+        name: '',
+        position: '',
+        nickname: '',
+        description: ''
+    }
+};
 
 class AddForm extends React.Component {
 
-    //3. Add state holding name, position, nickname and description to component.
-    state = {
-        newSmurf: {
-            id: Date.now(),
-            name: '',
-            position: '',
-            nickname: '',
-            description: ''
-        }
-    };
+    state = initialState;
 
     //5. Build eventhandler and listener needed to change the state.
-    handleChange = (e) => {
+    handleChange = e => {
         // console.log("Handle Change: ", e.target.name);
         this.setState({
             ...this.state,
@@ -32,7 +33,8 @@ class AddForm extends React.Component {
     //6. Build eventhandler and listener needed to submit a new smurf and dispatch it's assosated action.
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.addSmurf(this.state.newSmurf);
+        this.props.postSmurf(this.state.newSmurf);
+        this.setState(initialState);
     };
 
     //4. Build form DOM to include inputs for name, position and description of the component.
@@ -45,38 +47,66 @@ class AddForm extends React.Component {
             <h2>Add Smurf</h2>
             <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
+
                     <label htmlFor="name">Name:</label><br/>
-                    <input onChange={this.handleChange} name="name" id="name" value={this.state.name} />
+                    <input
+                        onChange={this.handleChange}
+                        name="name"
+                        id="name"
+                        value={this.state.newSmurf.name}
+                        required={errorMessage}
+                    />
 
-                    <label htmlFor="name">Position:</label><br/>
-                    <input onChange={this.handleChange} name="position" id="position" value={this.state.position}/>
+                    <label htmlFor="position">Position:</label><br/>
+                    <input
+                        onChange={this.handleChange}
+                        name="position"
+                        id="position"
+                        value={this.state.newSmurf.position}
+                        required={errorMessage}
+                    />
 
-                    <label htmlFor="name">Nickname:</label><br/>
-                    <input onChange={this.handleChange} name="nickname" id="nickname" value={this.state.nickname}/>
+                    <label htmlFor="nickname">Nickname:</label><br/>
+                    <input
+                        onChange={this.handleChange}
+                        name="nickname"
+                        id="nickname"
+                        value={this.state.newSmurf.nickname}
+                        required={errorMessage}
+                    />
                     
-                    <label htmlFor="name">Description:</label><br/>
-                    <input onChange={this.handleChange} name="description" id="description" value={this.state.description}/>
+                    <label htmlFor="description">Description:</label><br/>
+                    <input
+                        onChange={this.handleChange}
+                        name="description"
+                        id="description"
+                        value={this.state.newSmurf.description}
+                        required={errorMessage}
+                    />
+
                 </div>
 
                 {/*//7. Ensure that the included alert code only displays when error text is passed in from redux. */}
                 {/*//8. DO NOT DELETE THE data-testid FIELD FROM THE ERROR ALERT! This is used for sprint grading. */}
                 {(this.props.error) &&
-                    <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {this.props.error}</div>
+                    <div data-testid="errorAlert" className="alert alert-danger" role="alert">
+                        Error: {this.props.error}
+                    </div>
                 }
                 <button>Submit Smurf</button>
             </form>
-        </section>);
+        </section>)
     }
 };
 
 const mapStateToProps = state => {
     return {
-        error: state.error
+        error: state.addingError
     }
 };
 
 
 //2. Connect all needed redux state props and action functions to the component before exporting.
-export default connect(mapStateToProps, { addSmurf })(AddForm);
+export default connect(mapStateToProps, { postSmurf, errorMessage })(AddForm);
 
 //9. Style as necessary.
